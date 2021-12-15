@@ -1,9 +1,8 @@
-const randomPuppy = require('random-puppy');
 const names = {
     first: ["Roaring", "Fearless", "Black", "Broad", "Great", "Mighty", "Clever", "Crazy", "Swift", "Thundering", "Rapid", "Graceful", "Bloody", "Grumpy", "Deep", "Towering", "Shadowy", "Dark"],
     last: ["Waters", "Oak", "Pine", "Boulder", "Crag", "Heath", "River", "Cavern", "Sky", "Bark", "Mount", "Fjord", "Wolf", "Corbie", "Ettercap", "Hoolet"]
 }
-let outputUrl = "";
+let imgArr = [];
 
 
 function getRandomInt(max) {
@@ -19,7 +18,25 @@ function getRandomInt(max) {
     console.log(wolfName);
     document.getElementById('name-gen-output').innerHTML = wolfName;
 
-    randomPuppy('EarthPorn')
+    fetch("http://www.reddit.com/r/earthporn/.json")
+  .then(r => r.json()).then((r) => {
+     r.data.children.forEach((i) => {
+       try{
+        imgArr.push(i.data.url);
+       } catch (error){console.log(error.message)}
+
+ })
+      
+      imgArr.forEach(img => console.log(img));
+      const outputUrl = imgArr[getRandomInt(imgArr.length)];
+      document.body.style.backgroundImage = `url(${outputUrl})`;
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundSize = "cover";
+})
+
+ 
+
+    /*randomPuppy('EarthPorn')
   .then(url => {
       console.log(url);
       outputUrl = url;
@@ -27,6 +44,9 @@ function getRandomInt(max) {
       document.body.style.backgroundImage = `url(${outputUrl})`;
       document.body.style.backgroundRepeat = "no-repeat";
       document.body.style.backgroundSize = "cover";
-  })
+  })*/
 
   }
+
+  createName();
+
