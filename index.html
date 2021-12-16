@@ -3,16 +3,25 @@
 <head>
   <title>Wolf Name Gen</title>
    <meta name="viewport" content="width=device-width,initial-scale=1" >
-
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&family=Shadows+Into+Light&display=swap');
+</style>
   <link href='./style.css' rel='stylesheet'>
 </head>
 <body>
+<div class="content">
   <script src='namegen.js'></script>
-  <h1>Wolf-Friend Name Generator</h1>
-  <p>What will we call him today?</p>
+<div>
   <br>
-  <input type="button" id="name-button" value="Go Go Gadget Name" onclick="createName()">
-  <br>
-  <h3 id="name-gen-output">What is his name?</h3>
+  <h1 class="headers">Wolf-Friend Name Generator</h1>
+</div>
+    <div>
+      <button class="main-text" id="name-button" onclick="createName()" type="button">Make a Name</button>
+    </div>
+    <br>
+  <div>
+    <h3 class="headers" id="name-gen-output">What is his name?</h3>
+  </div>
+</div>
 </body>
 </html>

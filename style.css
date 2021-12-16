@@ -1,6 +1,52 @@
 body {
-  background: #000;
+  background-image: url("https://i.redd.it/ip8fuax03n581.jpg");
+  color: black;
+  padding: 8px;
+  font-family: "Playfair Display", sans-serif;
+}
+
+button {
+  box-sizing: border-box;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  background-color: none;
+  border: 2px solid white;
   color: #fff;
-  padding: 25px;
-  font-family: sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.1;
+  transition: 220ms all ease-in-out;
+}
+button:hover {
+  background-color: cornflowerblue;
+}
+button:active{
+  color: black;
+  border: 2px solid black;
+}
+
+
+.content{
+  max-width: 500px;
+  height: 650px;
+  margin: auto;
+  border-radius: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.headers{
+  font-family: "Shadows Into Light";
+  font-size: 50px;
+}
+
+.main-text{
+  font-family: "Playfair Display";
+  font-size: 16px;
 }
