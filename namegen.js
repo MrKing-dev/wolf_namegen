@@ -4,49 +4,36 @@ const names = {
 }
 let imgArr = [];
 
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
+
 
 function getRandomInt(max) {
     min = 0;
     max = Math.floor(max);
     return Math.floor(Math.random() * max); //The maximum is exclusive and the minimum is inclusive
-  }   
-
-  function createName(){
+  } 
+  
+   function createName(){
     const firstName = names.first[getRandomInt(names.first.length)];
     const lastName = names.last[getRandomInt(names.last.length)];
     const wolfName = firstName + " " + lastName;
     console.log(wolfName);
     document.getElementById('name-gen-output').innerHTML = wolfName;
 
-    fetch("http://www.reddit.com/r/earthporn/.json")
-  .then(r => r.json()).then((r) => {
-     r.data.children.forEach((i) => {
-       try{
-        imgArr.push(i.data.url);
-       } catch (error){console.log(error.message)}
+  
+        fetch("https://api.unsplash.com/photos/random?collections=nature&client_id=fF2wVjd38AA7Pmba9pf5Bl8IKrNWzK0Px0q2-eMJzIY")
+        .then(r => r.json()).then((r) => {
+          const data = r;
+            const outputUrl = data.urls.regular;     
+          
+            console.log(outputUrl);
+            document.body.style.backgroundImage = `url(${outputUrl})`;
+            //document.body.style.backgroundRepeat = "no-repeat";
+            //document.body.style.backgroundSize = "cover";
+        }) 
 
- })
-      
-      imgArr.forEach(img => console.log(img));
-      const outputUrl = imgArr[getRandomInt(imgArr.length)];
-      document.body.style.backgroundImage = `url(${outputUrl})`;
-      document.body.style.backgroundRepeat = "no-repeat";
-      document.body.style.backgroundSize = "cover";
-})
-
- 
-
-    /*randomPuppy('EarthPorn')
-  .then(url => {
-      console.log(url);
-      outputUrl = url;
-      console.log(`The output url is ${outputUrl}`);
-      document.body.style.backgroundImage = `url(${outputUrl})`;
-      document.body.style.backgroundRepeat = "no-repeat";
-      document.body.style.backgroundSize = "cover";
-  })*/
 
   }
-
-  createName();
-
