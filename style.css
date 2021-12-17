@@ -1,8 +1,17 @@
 body {
-  background-image: url("https://i.redd.it/ip8fuax03n581.jpg");
   color: black;
+  background-color: black;
   padding: 8px;
   font-family: "Playfair Display", sans-serif;
+}
+
+body {
+  background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  transition: all 0.5s ease-out;
 }
 
 button {
@@ -12,8 +21,8 @@ button {
   padding: 0;
   cursor: pointer;
   background-color: none;
-  border: 2px solid white;
-  color: #fff;
+  border: 2px solid black;
+  color: black;
   border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
   padding: 0.25em 0.75em;
@@ -24,11 +33,12 @@ button {
   transition: 220ms all ease-in-out;
 }
 button:hover {
-  background-color: cornflowerblue;
+  background-color: black;
+  color: white;
+  border: white;
 }
 button:active{
-  color: black;
-  border: 2px solid black;
+  border: 4px;
 }
 
 
@@ -38,7 +48,7 @@ button:active{
   margin: auto;
   border-radius: 20px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .headers{
@@ -49,4 +59,13 @@ button:active{
 .main-text{
   font-family: "Playfair Display";
   font-size: 16px;
+}
+
+#image-att, 
+#image-down{
+  font-size: 12px;
+  font-family: "Playfair Display";
+  display: inline-flex;
+  vertical-align: bottom;
+  text-align: center;
 }
