@@ -2,6 +2,7 @@ const names = {
     first: ["Roaring", "Fearless", "Black", "Broad", "Great", "Mighty", "Clever", "Crazy", "Swift", "Thundering", "Rapid", "Graceful", "Bloody", "Grumpy", "Deep", "Towering", "Shadowy", "Dark", "Regal"],
     last: ["Waters", "Oak", "Pine", "Boulder", "Crag", "Heath", "River", "Cavern", "Sky", "Bark", "Peak", "Fjord", "Bear", "Corbie", "Ettercap", "Hoolet", "Alpha"]
 }
+const key = config.API_KEY;
 
 function getRandomInt(max) {
     min = 0;
@@ -10,7 +11,7 @@ function getRandomInt(max) {
   } 
 
   function getBackground(){ 
-  fetch("https://api.unsplash.com/photos/random?query=nature&client_id=fF2wVjd38AA7Pmba9pf5Bl8IKrNWzK0Px0q2-eMJzIY")
+  fetch(`https://api.unsplash.com/photos/random?query=nature&client_id=${key}`)
         .then(r => r.json()).then((r) => {
           const data = r;
             const outputUrl = data.urls.regular;     
